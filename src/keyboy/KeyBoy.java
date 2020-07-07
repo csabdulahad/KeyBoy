@@ -26,6 +26,7 @@ public class KeyBoy extends Application {
 
         primaryStage.setTitle("Key Boy 1.0.7");
 
+
         // set the icon of the application
         try {
             String path = KeyBoy.class.getResource("icon/keyboy.png").toURI().toString();
@@ -33,8 +34,12 @@ public class KeyBoy extends Application {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-        primaryStage.setScene(new Scene(root, Control.USE_COMPUTED_SIZE, Control.USE_COMPUTED_SIZE));
 
+        // customize the window
+        primaryStage.setResizable(false);
+        primaryStage.setAlwaysOnTop(true);
+
+        primaryStage.setScene(new Scene(root, Control.USE_COMPUTED_SIZE, Control.USE_COMPUTED_SIZE));
         primaryStage.show();
     }
 

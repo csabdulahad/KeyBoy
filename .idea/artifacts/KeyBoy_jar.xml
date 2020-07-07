@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="KeyBoy:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/KeyBoy_jar</output-path>
+    <root id="archive" name="KeyBoy.jar">
+      <element id="module-output" name="KeyBoy" />
+    </root>
+  </artifact>
+</component>
