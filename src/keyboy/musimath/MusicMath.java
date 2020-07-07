@@ -9,10 +9,9 @@ public class MusicMath {
      * */
     public static int diff(char a, char b) {
         int diff = 0;
-        while (true) {
+        while (a != b) {
             a++;
             diff++;
-            if (a == b) break;
             if (a > 'g') a = 'a';
             if (a < 'a') a = 'g';
         }
