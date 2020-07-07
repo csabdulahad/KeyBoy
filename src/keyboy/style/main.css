@@ -1,0 +1,15 @@
+.bottomBorder {
+    -fx-border-color: #D7D7D7;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-style: solid;
+}
+
+.allBorder1, .allBorder2 {
+     -fx-border-color: #D7D7D7;
+     -fx-border-width: 1 1 1 1;
+     -fx-border-style: solid;
+ }
+
+ .allBorder2 {
+     -fx-border-color: #D7D7D7;
+ }
