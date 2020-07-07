@@ -5,7 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Control;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+import java.net.URISyntaxException;
 
 public class KeyBoy extends Application {
 
@@ -20,8 +23,18 @@ public class KeyBoy extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("layout/layout_main.fxml"));
-        primaryStage.setTitle("Key Boy");
+
+        primaryStage.setTitle("Key Boy 1.0.7");
+
+        // set the icon of the application
+        try {
+            String path = KeyBoy.class.getResource("icon/keyboy.png").toURI().toString();
+            primaryStage.getIcons().add(new Image(path));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
         primaryStage.setScene(new Scene(root, Control.USE_COMPUTED_SIZE, Control.USE_COMPUTED_SIZE));
+
         primaryStage.show();
     }
 
