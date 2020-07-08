@@ -1,39 +1,40 @@
 package keyboy.musimath;
 
+import keyboy.data.Note;
+
 public class MusicMath {
 
     /*
-     * this method assumed that char a, b are in lowercase latter and in the valid range.
-     * otherwise it will stack forever. it can tell how much step it is needed to get from
-     * one char point to another within a loop of a to g of music notes.
+     * this method finds the step difference between two notes(index defined in Note class). for
+     * forward step it returns negative value as difference, positive otherwise.
      * */
-    public static int diff(char a, char b) {
-        int diff = 0;
-        while (a != b) {
-            a++;
-            diff++;
-            if (a > 'g') a = 'a';
-            if (a < 'a') a = 'g';
-        }
-        return diff;
+    public static int diff(String noteA, String noteB) {
+        int indexA = Note.getIndex(noteA);
+        int indexB = Note.getIndex(noteB);
+        if (indexA == indexB) return 0;
+
+        int stepDiff = indexA - indexB;
+
+        if (indexA > indexB) return -stepDiff;
+        else return Math.abs(stepDiff);
     }
 
     /*
-     * like previous method in this class, this method assumes that latter in valid range. this
-     * method moves along a to g from one char point as per give step.
+     * this method can move the notes(defined by index as in Note class) for given number of
+     * step and return the index of the note.
      * */
-    public static char charMath(int latter, int step) {
-        int inc = (step < 0) ? -1 : 1;
+    public static int moveOnFretBoard(int from, int numOfStep) {
+        int stepInc = numOfStep < 0 ? -1 : 1;
+        int stepCount = 0;
+        int end = Math.abs(numOfStep);
 
-        int start = 0, end = Math.abs(step);
-        while (start != end) {
-            latter += inc;
-            if (latter > 103) latter = 97;
-            if (latter < 97) latter = 103;
-            start++;
+        while (stepCount != end) {
+            from += stepInc;
+            stepCount++;
+            if (from > 12) from = 1;
+            if (from < 1) from = 12;
         }
-
-        return (char) latter;
+        return from;
     }
 
 }
