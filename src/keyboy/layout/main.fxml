@@ -2,15 +2,14 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<VBox
-        fx:id="root"
-        maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="720.0"
-        stylesheets="@../style/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-        fx:controller="keyboy.controller.Main">
+<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefWidth="720.0" stylesheets="@../style/main.css" xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="keyboy.controller.Main">
     <HBox alignment="CENTER_LEFT" style="-fx-background-color: #D7D7D7;">
         <VBox.margin>
             <Insets/>
@@ -26,19 +25,31 @@
                 <VBox.margin>
                     <Insets/>
                 </VBox.margin>
-                <Label text="Key Boy 1.0.7" textFill="#515151">
-                    <font>
-                        <Font name="System Bold" size="32.0"/>
-                    </font>
-                </Label>
-                <Label contentDisplay="TOP" layoutY="41.0" text="By Abdul Ahad">
+                <HBox alignment="CENTER_RIGHT">
+                    <Label text="Key Boy 1.0.7" textFill="#515151">
+                        <font>
+                            <Font name="System Bold" size="32.0"/>
+                        </font>
+                    </Label>
+                    <ImageView fx:id="pin" fitHeight="32.0" fitWidth="32.0" onMouseClicked="#pin" pickOnBounds="true"
+                               preserveRatio="true">
+                        <HBox.margin>
+                            <Insets left="16.0"/>
+                        </HBox.margin>
+                        <cursor>
+                            <Cursor fx:constant="HAND"/>
+                        </cursor>
+                        <Image url="@../icon/pin_on.png"/>
+                    </ImageView>
+                </HBox>
+                <Label contentDisplay="TOP" layoutY="44.0" text="From Abdul Ahad">
                     <font>
                         <Font size="13.0"/>
                     </font>
                 </Label>
             </AnchorPane>
-            <Label text="This good boy can transfer a chord progression into other keys. If you enjoy this product, consider bying the developer a cup of Tea. He likes Tea more than anything in the world."
-                   wrapText="true">
+            <Label text="This good boy can transfer a chord progression into other keys. If you enjoy this product, consider buying the developer a cup of Tea. He likes Tea more than anything in the world."
+                   textAlignment="JUSTIFY" wrapText="true">
                 <font>
                     <Font size="14.0"/>
                 </font>
@@ -50,11 +61,15 @@
                 </padding>
             </Label>
         </VBox>
-        <ImageView fitHeight="140.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="keyboy" fitHeight="140.0" fitWidth="140.0" onMouseClicked="#about" pickOnBounds="true"
+                   preserveRatio="true">
             <HBox.margin>
                 <Insets left="16.0"/>
             </HBox.margin>
             <Image url="@../icon/keyboy.png"/>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
         </ImageView>
     </HBox>
     <HBox spacing="16.0">
@@ -66,9 +81,8 @@
                 <padding>
                     <Insets left="10.0" right="10.0"/>
                 </padding>
-                <Label text="Chord" textFill="#545454" AnchorPane.bottomAnchor="0.0"
-                       AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                       AnchorPane.topAnchor="0.0">
+                <Label text="Chord" textFill="#545454" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                       AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <font>
                         <Font name="Segoe UI Semibold" size="22.0"/>
                     </font>
@@ -78,10 +92,10 @@
                 <padding>
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                 </padding>
-                <TextArea fx:id="chord" maxHeight="-Infinity" maxWidth="200.0" minHeight="-Infinity"
-                          prefHeight="60.0" promptText="Comma seperated chords. Ex: Em, D, Gb, F#"
-                          wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <TextArea fx:id="chord" maxHeight="-Infinity" maxWidth="200.0" minHeight="-Infinity" prefHeight="60.0"
+                          promptText="Comma seperated chords. Ex: Em, D, Gb, F#" wrapText="true"
+                          AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                          AnchorPane.topAnchor="0.0">
                     <font>
                         <Font size="16.0"/>
                     </font>
@@ -93,9 +107,8 @@
                 <padding>
                     <Insets left="10.0" right="10.0"/>
                 </padding>
-                <Label text="Shape" textFill="#545454" AnchorPane.bottomAnchor="0.0"
-                       AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                       AnchorPane.topAnchor="0.0">
+                <Label text="Shape" textFill="#545454" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                       AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <font>
                         <Font name="Segoe UI Semibold" size="22.0"/>
                     </font>
@@ -105,8 +118,7 @@
                 <padding>
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                 </padding>
-                <RadioButton fx:id="maj" id="maj" mnemonicParsing="false" selected="true"
-                             text="Major Key">
+                <RadioButton id="maj" fx:id="maj" mnemonicParsing="false" selected="true" text="Major Key">
                     <VBox.margin>
                         <Insets bottom="10.0"/>
                     </VBox.margin>
@@ -117,7 +129,7 @@
                         <ToggleGroup fx:id="shape"/>
                     </toggleGroup>
                 </RadioButton>
-                <RadioButton fx:id="min" id="min" mnemonicParsing="false" text="Minor Key" toggleGroup="$shape">
+                <RadioButton id="min" fx:id="min" mnemonicParsing="false" text="Minor Key" toggleGroup="$shape">
                     <font>
                         <Font size="15.0"/>
                     </font>
@@ -132,9 +144,8 @@
                 <padding>
                     <Insets left="10.0" right="10.0"/>
                 </padding>
-                <Label text="Key" textFill="#545454" AnchorPane.bottomAnchor="0.0"
-                       AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                       AnchorPane.topAnchor="0.0">
+                <Label text="Key" textFill="#545454" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                       AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <font>
                         <Font name="Segoe UI Semibold" size="22.0"/>
                     </font>
@@ -145,17 +156,16 @@
                     <padding>
                         <Insets left="10.0" right="10.0" top="10.0"/>
                     </padding>
-                    <ComboBox fx:id="key" prefWidth="100.0" promptText="Select key"
-                              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                    <ComboBox fx:id="key" prefWidth="100.0" promptText="Select key" AnchorPane.bottomAnchor="0.0"
+                              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
                 </AnchorPane>
                 <AnchorPane>
                     <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                     </padding>
                     <Button mnemonicParsing="false" onAction="#convert" prefWidth="100.0" text="Go »"
-                            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                            AnchorPane.topAnchor="0.0"/>
                 </AnchorPane>
             </VBox>
         </VBox>
@@ -165,9 +175,9 @@
             <Insets bottom="16.0" left="16.0" right="16.0"/>
         </VBox.margin>
         <AnchorPane>
-            <Label fx:id="chordFrom" alignment="CENTER" style="-fx-background-color: white;"
-                   styleClass="allBorder2" text="- - - Original Chords - - -" AnchorPane.bottomAnchor="0.0"
-                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Label fx:id="chordFrom" alignment="CENTER" style="-fx-background-color: white;" styleClass="allBorder2"
+                   text="- - - Original Chords - - -" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                 <font>
                     <Font name="Monospaced Bold" size="24.0"/>
                 </font>
@@ -177,9 +187,9 @@
             </Label>
         </AnchorPane>
         <AnchorPane>
-            <Label fx:id="chordTo" alignment="CENTER" style="-fx-background-color: white;"
-                   styleClass="allBorder2" text="- - - Converted Chord - - -" AnchorPane.bottomAnchor="0.0"
-                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Label fx:id="chordTo" alignment="CENTER" style="-fx-background-color: white;" styleClass="allBorder2"
+                   text="- - - Converted Chord - - -" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                 <font>
                     <Font name="Monospaced Bold" size="24.0"/>
                 </font>

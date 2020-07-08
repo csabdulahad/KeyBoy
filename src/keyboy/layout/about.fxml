@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0"
+      xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="keyboy.controller.About">
+    <padding>
+        <Insets left="16.0" right="16.0" top="16.0"/>
+    </padding>
+    <ImageView fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+        <HBox.margin>
+            <Insets right="16.0"/>
+        </HBox.margin>
+        <Image url="@../image/ahad.jpg"/>
+    </ImageView>
+    <VBox HBox.hgrow="ALWAYS">
+        <Label text="Hi, I'm Abdul Ahad from Bangladesh and I've been developing software for the last 5+ years for Android Mobile, Java Desktop Software &amp; Web Application. Currently (2020), I'm doing a Master in Computer Science at Teesside University, UK."
+               textAlignment="JUSTIFY" wrapText="true" VBox.vgrow="ALWAYS">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <Label text="You can say &quot;Thank You&quot; or contact me using the following details anytime. I would appreciate any suggestion or bug report to improve the product."
+               textAlignment="JUSTIFY" wrapText="true">
+            <font>
+                <Font size="14.0"/>
+            </font>
+            <VBox.margin>
+                <Insets bottom="12.0" top="12.0"/>
+            </VBox.margin>
+        </Label>
+        <Label onMouseClicked="#sendMail" text="csabdulahad@gmail.com" textFill="#1c11bf">
+            <font>
+                <Font size="14.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Label>
+        <Label onMouseClicked="#openWeb" text="http://abdulahad.net" textFill="#1c11bf">
+            <font>
+                <Font size="14.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Label>
+    </VBox>
+</HBox>
